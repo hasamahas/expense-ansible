@@ -1,3 +1,8 @@
 [db]
-
 db.hasamahas.online
+
+[backend]
+backend.hasamahas.online
+
+[frontend]
+hasamahas.online
