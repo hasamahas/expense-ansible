@@ -35,5 +35,10 @@
   - name: print output
     ansible.builtin.debug:
       msg: "Mysql connection output is: {{mysql_connection_output}}"
+    
+  - name: setup root password
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass ExpenseApp@1"
+    when: mysql_connection_output.failed is true # dont give {{}} for true
+
 
 
