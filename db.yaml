@@ -1,4 +1,4 @@
-- name: db configuration
+- name: expense db configuration
   hosts: db
   become: yes
   vars:
