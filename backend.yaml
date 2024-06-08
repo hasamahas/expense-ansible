@@ -4,7 +4,7 @@
   vars:
     login_hosts: db.hasamahas.online
   
-  var_prompt:
+  vars_prompt:
   - name: mysql_root_password
     prompt: Enter MySql root password
     private: no
