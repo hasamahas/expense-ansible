@@ -46,7 +46,7 @@
       chdir: /app   # we are telling ansible that run change dir before run npm install
 
   - name: copy backend service file
-    ansible.builtn.copy:
+    ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
