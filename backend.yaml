@@ -1,5 +1,5 @@
 - name: configure backend server
-  hosts: backend.hasamas.online
+  hosts: backend.hasamahas.online
   become: yes
   vars:
     login_hosts: db.hamahasas.online
