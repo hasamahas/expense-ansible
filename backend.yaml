@@ -35,7 +35,7 @@
       dest: /tmp/backend.zip
 
   - name: unzip backend code
-    ansible.builtin.unarcheive:
+    ansible.builtin.unarchive:
       src:  /tmp/backend.zip    # by defaul check in ansible servers
       dest: /app
       remote_src: yes  # so we are telling unzip the file in remore server not in ansible server
