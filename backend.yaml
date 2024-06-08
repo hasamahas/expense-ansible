@@ -3,7 +3,11 @@
   become: yes
   vars:
     login_hosts: db.hamahasas.online
-    login_password: ExpenseApp@1
+  
+  var_prompt:
+  - name: mysql_root_password
+    prompt: Enter MySql root password
+    private: no
 
   tasks:
   - name: disable default nodejs
