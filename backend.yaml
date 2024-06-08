@@ -1,5 +1,5 @@
 - name: configure backend server
-  hosts: backend.hasamahas.online
+  hosts: backend
   become: yes
   vars:
     login_hosts: db.hamahasas.online
@@ -25,9 +25,9 @@
       name: expense
 
   - name: create app directory
-      ansible.builtin.file:
-        path: /app
-        state: directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
 
   - name: download the file
     ansible.builtin.get_ur:
