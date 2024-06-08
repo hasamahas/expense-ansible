@@ -17,7 +17,6 @@
   - name: remove default web browser content
     ansible.builtin.file:
       path: /usr/share/nginx/html/
-      recurse: yes
       state: absent
 
   - name: Creae html direcotry
