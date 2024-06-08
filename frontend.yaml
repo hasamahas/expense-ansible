@@ -6,12 +6,13 @@
     ansible.builtin.dnf:
       name: nginx
       state: latest
-      enabled: yes
+      
 
-  - name: start nginx service
+  - name: start and enable nginx service
     ansible.builtin.service:
       name: nginx
       state: started
+      enabled: yes
     
   - name: remove default web browser content
     ansible.builtin.file:
@@ -19,16 +20,26 @@
       recurse: yes
       state: absent
 
-  - name: download frontend content
-    ansible.builtin.get_ur:
-      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /tmp/frontend.zip
+  - name: Creae html direcotry
+    ansible.builtin.file:
+      path: /usr/share/nginx/html/
+      state: directory
 
-  - name: extract the frontend content
+  - name: download and extract frontend content
     ansible.builtin.unarcheive:
-      src:  /tmp/frontend.zip    # by defaul check in ansible servers
+      src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       dest: /usr/share/nginx/html
-      remote_src: yes
+
+  - name: copy backend configuration
+    ansible.builtin.copy:
+      src: expense.conf
+      dest: /etc/nginx/default.d/expense.conf
+
+  - name: restart nginx
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
+      
 
   
 
