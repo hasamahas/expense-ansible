@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars:
-    login_hosts: db.hamahasas.online
+    login_hosts: db.hasamahas.online
   
   var_prompt:
   - name: mysql_root_password
