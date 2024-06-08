@@ -47,7 +47,7 @@
 
   - name: copy backend service file
     ansible.builtn.copy:
-      src:backend.service
+      src: backend.service
       dest: /etc/systemd/system/backend.service
 
   - name: install python mysql dependancies
