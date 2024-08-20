@@ -68,7 +68,7 @@
       login_host: "{{login_hosts}}"
       target: /app/schema/backend.sql
       state: import
-      name: all
+      name: all  # to import all data
 
   - name: daemon reload
     ansible.builtin.systemd_service:
